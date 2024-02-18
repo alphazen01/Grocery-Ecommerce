@@ -8,6 +8,7 @@ import 'package:grocery/app/core/app_icons.dart';
 import 'package:grocery/app/core/app_images.dart';
 import 'package:grocery/app/core/app_sizes.dart';
 import 'package:grocery/app/global_widgets/custom_button.dart';
+import 'package:grocery/app/global_widgets/custom_image.dart';
 import 'package:grocery/app/global_widgets/custom_text.dart';
 import 'package:grocery/app/moduels/onboarding/controller/onboarding_controller.dart';
 
@@ -35,7 +36,9 @@ class OnbordingScreen extends GetView<SplashController> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            SvgPicture.asset(AppIcons.carrot),
+            CustomImage(
+              path: AppIcons.carrot,
+            ),
             SizedBox(
               height: getHeight(35.66),
             ),

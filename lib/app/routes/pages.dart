@@ -1,3 +1,4 @@
+import 'package:get/get.dart';
 import 'package:get/get_navigation/src/routes/get_route.dart';
 import 'package:grocery/app/moduels/onboarding/bindings/onboarding_bindings.dart';
 import 'package:grocery/app/moduels/onboarding/bindings/splash_bindings.dart';
@@ -15,15 +16,15 @@ class Pages {
       binding: SplashBindings(),
     ),
     GetPage(
-      name: Routes.onboardingHome,
-      page: () => const OnbordingScreen(),
-      binding: OnBoardBinding(),
-    ),
+        name: Routes.onboardingHome,
+        page: () => const OnbordingScreen(),
+        binding: OnBoardBinding(),
+        transition: Transition.rightToLeft),
     GetPage(
-      name: Routes.socialScreen,
-      page: () => const SocialScreen(),
-      binding: SocialBindings(),
-    ),
+        name: Routes.socialScreen,
+        page: () => const SocialScreen(),
+        binding: SocialBindings(),
+        transition: Transition.rightToLeft),
     // GetPage(
     //   name: Routes.noInternet,
     //   page: () => const NoInternetPage(),
