@@ -43,6 +43,7 @@ class AppColors {
   static Color themeColor2 = const Color(0xff319A8D);
   static Color textColor = const Color(0xff35424a);
   static Color textColor2 = const Color(0xffFCFCFC).withOpacity(0.7);
+  static Color textColorBlack = const Color(0xff030303);
   static Color linearProgressBackColor = const Color(0xffCED3DE);
   static Color installmentBackgroundColor = const Color(0xffF0F5FF);
   static Color barrierColor = const Color(0xffC4C4C4).withOpacity(0.12);

@@ -11,7 +11,9 @@ import 'package:grocery/app/global_widgets/custom_button.dart';
 import 'package:grocery/app/global_widgets/custom_text.dart';
 import 'package:grocery/app/moduels/onboarding/controller/onboarding_controller.dart';
 
-class OnbordingScreen extends GetView<OnboardingController> {
+import 'package:grocery/app/routes/routes.dart';
+
+class OnbordingScreen extends GetView<SplashController> {
   const OnbordingScreen({super.key});
 
   @override
@@ -60,7 +62,11 @@ class OnbordingScreen extends GetView<OnboardingController> {
               height: getHeight(40.88),
             ),
             CustomSubmitButton(
-              onTap: () {},
+              onTap: () {
+                Get.toNamed(Routes.socialScreen);
+                // Navigator.push(
+                //     context, MaterialPageRoute(builder: (_) => SplashScreen()));
+              },
               title: "Get Started",
             )
           ],
