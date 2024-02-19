@@ -27,11 +27,12 @@ class _SplashScreenState extends State<SplashScreen>
     super.initState();
     // _loadResource();
     controller =
-        AnimationController(vsync: this, duration: Duration(seconds: 2))
+        AnimationController(vsync: this, duration: const Duration(seconds: 2))
           ..forward();
 
     animation = CurvedAnimation(parent: controller, curve: Curves.linear);
-    Timer(Duration(seconds: 7), () => Get.offNamed(Routes.onboardingHome));
+    Timer(
+        const Duration(seconds: 7), () => Get.offNamed(Routes.onboardingHome));
   }
 
   @override
@@ -52,7 +53,7 @@ class _SplashScreenState extends State<SplashScreen>
             child: Container(
               height: MediaQuery.of(context).size.height,
               width: double.infinity,
-              decoration: BoxDecoration(
+              decoration: const BoxDecoration(
                   image: DecorationImage(
                       image: AssetImage(AppImages.splashImage),
                       fit: BoxFit.cover)),

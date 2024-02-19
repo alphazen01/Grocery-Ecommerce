@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:grocery/app/core/app_colors.dart';
 
@@ -36,7 +35,7 @@ class OnbordingScreen extends GetView<SplashController> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            CustomImage(
+            const CustomImage(
               path: AppIcons.carrot,
             ),
             SizedBox(

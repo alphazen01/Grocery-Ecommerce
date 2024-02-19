@@ -1,7 +1,9 @@
 import 'package:get/get.dart';
-import 'package:get/get_navigation/src/routes/get_route.dart';
+
+import 'package:grocery/app/moduels/onboarding/bindings/number_bindings.dart';
 import 'package:grocery/app/moduels/onboarding/bindings/onboarding_bindings.dart';
 import 'package:grocery/app/moduels/onboarding/bindings/splash_bindings.dart';
+import 'package:grocery/app/moduels/onboarding/screen/number_screen.dart';
 import 'package:grocery/app/moduels/onboarding/screen/onbarding.dart';
 import 'package:grocery/app/moduels/onboarding/screen/splash.dart';
 import 'package:grocery/app/moduels/social_screen/bindings/social_bindings.dart';
@@ -16,15 +18,26 @@ class Pages {
       binding: SplashBindings(),
     ),
     GetPage(
-        name: Routes.onboardingHome,
-        page: () => const OnbordingScreen(),
-        binding: OnBoardBinding(),
-        transition: Transition.rightToLeft),
+      name: Routes.onboardingHome,
+      page: () => const OnbordingScreen(),
+      binding: OnBoardBinding(),
+      transition: Transition.rightToLeft,
+      transitionDuration: const Duration(milliseconds: 300),
+    ),
     GetPage(
-        name: Routes.socialScreen,
-        page: () => const SocialScreen(),
-        binding: SocialBindings(),
-        transition: Transition.rightToLeft),
+      name: Routes.socialScreen,
+      page: () => const SocialScreen(),
+      binding: SocialBindings(),
+      transition: Transition.rightToLeft,
+      transitionDuration: const Duration(milliseconds: 300),
+    ),
+    GetPage(
+      name: Routes.numberScreen,
+      page: () => const NumberScreen(),
+      binding: NumberBinding(),
+      transition: Transition.rightToLeft,
+      transitionDuration: const Duration(milliseconds: 300),
+    ),
     // GetPage(
     //   name: Routes.noInternet,
     //   page: () => const NoInternetPage(),

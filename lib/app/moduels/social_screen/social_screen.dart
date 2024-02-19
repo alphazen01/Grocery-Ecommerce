@@ -10,6 +10,7 @@ import 'package:grocery/app/core/app_sizes.dart';
 import 'package:grocery/app/global_widgets/custom_text.dart';
 import 'package:grocery/app/global_widgets/social_button.dart';
 import 'package:grocery/app/moduels/social_screen/controller/social_controller.dart';
+import 'package:grocery/app/routes/routes.dart';
 import 'package:intl_phone_field/intl_phone_field.dart';
 
 class SocialScreen extends GetView<SocialController> {
@@ -129,7 +130,9 @@ class SocialScreen extends GetView<SocialController> {
                     height: getHeight(37.8),
                   ),
                   CustomSocialButton(
-                    onTap: () {},
+                    onTap: () {
+                      Get.toNamed(Routes.numberScreen);
+                    },
                     title: 'Continue with Google',
                     imagePath: AppIcons.googleIcon,
                     buttonColor: AppColors.blue3rd,

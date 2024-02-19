@@ -43,9 +43,16 @@ class AppColors {
   static Color themeColor = const Color(0xff2A9C73);
   static Color themeColor1 = const Color(0xff219E55);
   static Color themeColor2 = const Color(0xff319A8D);
+
+  //grocery
   static Color textColor = const Color(0xff35424a);
   static Color textColor2 = const Color(0xffFCFCFC).withOpacity(0.7);
   static Color textColor3 = const Color(0xff828282);
+  static Color textColor4 = const Color(0xff181725);
+  static Color textColor5 = const Color(0xff7C7C7C);
+  static Color iconWhite = const Color(0xffFFF9FF);
+//grocery
+
   static Color textColorBlack = const Color(0xff030303);
   static Color linearProgressBackColor = const Color(0xffCED3DE);
   static Color installmentBackgroundColor = const Color(0xffF0F5FF);

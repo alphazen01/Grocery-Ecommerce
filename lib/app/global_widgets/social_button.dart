@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:grocery/app/animation/custom_delay_animation.dart';
-import 'package:grocery/app/core/app_colors.dart';
-import 'package:grocery/app/core/app_icons.dart';
 import 'package:grocery/app/core/app_sizes.dart';
 import 'package:grocery/app/global_widgets/custom_image.dart';
 import 'package:grocery/app/global_widgets/custom_text.dart';
