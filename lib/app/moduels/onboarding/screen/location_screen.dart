@@ -5,6 +5,7 @@ import 'package:grocery/app/core/app_colors.dart';
 import 'package:grocery/app/core/app_icons.dart';
 import 'package:grocery/app/core/app_images.dart';
 import 'package:grocery/app/core/app_sizes.dart';
+import 'package:grocery/app/global_widgets/custom_button.dart';
 
 import 'package:grocery/app/global_widgets/custom_image.dart';
 import 'package:grocery/app/global_widgets/custom_text.dart';
@@ -91,6 +92,7 @@ class LocationScreen extends GetView<LocationController> {
                 height: getHeight(90),
               ),
               Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   CustomDelayedAnimation(
                     delay: 20,
@@ -106,17 +108,19 @@ class LocationScreen extends GetView<LocationController> {
                   SizedBox(
                     height: getHeight(10),
                   ),
-                  CustomTextFormField(
-                    controller: controller.locationNameController,
-                    hintText: "Select your area",
-                    readOnly: true,
-                    suffixIcon: IconButton(
-                      onPressed: () {},
-                      icon: const CustomImage(
-                        path: AppIcons.arrowDown,
-                      ),
+                  CustomDelayedAnimation(
+                    delay: 20,
+                    dx: 0,
+                    dy: -0.2,
+                    child: CustomTextFormField(
+                      controller: controller.locationNameController,
+                      hintText: "Type your location",
                     ),
-                  )
+                  ),
+                  SizedBox(
+                    height: getHeight(40),
+                  ),
+                  CustomSubmitButton(onTap: () {}, title: "Submit")
                 ],
               ),
             ],
