@@ -51,6 +51,7 @@ class AppColors {
   static Color textColor4 = const Color(0xff181725);
   static Color textColor5 = const Color(0xff7C7C7C);
   static Color iconWhite = const Color(0xffFFF9FF);
+  static Color texfieldBorder = const Color(0xffE2E2E2);
 //grocery
 
   static Color textColorBlack = const Color(0xff030303);

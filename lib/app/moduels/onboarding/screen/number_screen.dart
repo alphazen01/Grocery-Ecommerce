@@ -9,6 +9,7 @@ import 'package:grocery/app/core/app_sizes.dart';
 import 'package:grocery/app/global_widgets/custom_image.dart';
 import 'package:grocery/app/global_widgets/custom_text.dart';
 import 'package:grocery/app/moduels/onboarding/controller/number_controller.dart';
+import 'package:grocery/app/routes/routes.dart';
 import 'package:intl_phone_field/intl_phone_field.dart';
 
 class NumberScreen extends GetView<NumberController> {
@@ -40,20 +41,30 @@ class NumberScreen extends GetView<NumberController> {
               SizedBox(
                 height: getHeight(65),
               ),
-              CustomText(
-                text: "Enter your mobile number",
-                fontSize: getWidth(26),
-                fontWeight: FontWeight.w600,
-                color: AppColors.textColor4,
+              CustomDelayedAnimation(
+                delay: 20,
+                dx: 0,
+                dy: -0.2,
+                child: CustomText(
+                  text: "Enter your mobile number",
+                  fontSize: getWidth(26),
+                  fontWeight: FontWeight.w600,
+                  color: AppColors.textColor4,
+                ),
               ),
               SizedBox(
                 height: getHeight(27.58),
               ),
-              CustomText(
-                text: "Mobile Number",
-                fontSize: getWidth(16),
-                fontWeight: FontWeight.w600,
-                color: AppColors.textColor5,
+              CustomDelayedAnimation(
+                delay: 20,
+                dx: 0,
+                dy: -0.2,
+                child: CustomText(
+                  text: "Mobile Number",
+                  fontSize: getWidth(16),
+                  fontWeight: FontWeight.w600,
+                  color: AppColors.textColor5,
+                ),
               ),
               SizedBox(
                 height: getHeight(10),
@@ -134,7 +145,12 @@ class NumberScreen extends GetView<NumberController> {
               color: AppColors.iconWhite,
             ),
             backgroundColor: AppColors.green,
-            onPressed: () {},
+            onPressed: () {
+              Get.toNamed(Routes.verificaitonScreen);
+              // Navigator.push(context,
+              //     MaterialPageRoute(builder: (_) => VerificationScreen()));
+              print("object");
+            },
             shape:
                 RoundedRectangleBorder(borderRadius: BorderRadius.circular(50)),
           ),

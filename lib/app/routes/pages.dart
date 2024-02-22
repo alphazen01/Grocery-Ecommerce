@@ -1,11 +1,15 @@
 import 'package:get/get.dart';
+import 'package:grocery/app/moduels/onboarding/bindings/location_bindings.dart';
 
 import 'package:grocery/app/moduels/onboarding/bindings/number_bindings.dart';
 import 'package:grocery/app/moduels/onboarding/bindings/onboarding_bindings.dart';
 import 'package:grocery/app/moduels/onboarding/bindings/splash_bindings.dart';
+import 'package:grocery/app/moduels/onboarding/bindings/verification_bindings.dart';
+import 'package:grocery/app/moduels/onboarding/screen/location_screen.dart';
 import 'package:grocery/app/moduels/onboarding/screen/number_screen.dart';
 import 'package:grocery/app/moduels/onboarding/screen/onbarding.dart';
 import 'package:grocery/app/moduels/onboarding/screen/splash.dart';
+import 'package:grocery/app/moduels/onboarding/screen/verification_screen.dart';
 import 'package:grocery/app/moduels/social_screen/bindings/social_bindings.dart';
 import 'package:grocery/app/moduels/social_screen/social_screen.dart';
 import 'package:grocery/app/routes/routes.dart';
@@ -35,6 +39,20 @@ class Pages {
       name: Routes.numberScreen,
       page: () => const NumberScreen(),
       binding: NumberBinding(),
+      transition: Transition.rightToLeft,
+      transitionDuration: const Duration(milliseconds: 300),
+    ),
+    GetPage(
+      name: Routes.verificaitonScreen,
+      page: () => const VerificationScreen(),
+      binding: VerificationBinding(),
+      transition: Transition.rightToLeft,
+      transitionDuration: const Duration(milliseconds: 300),
+    ),
+    GetPage(
+      name: Routes.locationScreen,
+      page: () => const LocationScreen(),
+      binding: LocationBinding(),
       transition: Transition.rightToLeft,
       transitionDuration: const Duration(milliseconds: 300),
     ),

@@ -11,4 +11,6 @@ abstract class Routes {
   static const splashScreen = '/splashScreen';
   static const socialScreen = '/socialScreen';
   static const numberScreen = '/numbeScreen';
+  static const verificaitonScreen = '/verificaitonScreen';
+  static const locationScreen = '/locationScreen';
 }
