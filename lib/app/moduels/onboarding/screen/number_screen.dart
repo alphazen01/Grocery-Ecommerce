@@ -81,7 +81,7 @@ class NumberScreen extends GetView<NumberController> {
                         decoration: InputDecoration(
                             contentPadding: const EdgeInsets.symmetric(
                                 vertical: 16, horizontal: 16),
-                            fillColor: Colors.white.withOpacity(0.5),
+                            fillColor: AppColors.textfieldFilColor,
                             filled: true,
                             // labelText: 'Mobile',
                             // hintText: "mobile_number".tr,
@@ -101,12 +101,12 @@ class NumberScreen extends GetView<NumberController> {
                             //   borderRadius: BorderRadius.circular(20),
                             // ),
                             focusedBorder: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(20),
-                            ),
-                            enabledBorder: OutlineInputBorder(
                                 borderRadius: BorderRadius.circular(20),
-                                borderSide:
-                                    BorderSide(color: AppColors.green))),
+                                borderSide: BorderSide(color: AppColors.green)),
+                            enabledBorder: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(20),
+                              borderSide: BorderSide.none,
+                            )),
                         initialCountryCode: controller.countryLetterCode.value,
                         keyboardType: TextInputType.number,
                         textInputAction: TextInputAction.done,

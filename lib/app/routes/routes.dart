@@ -1,7 +1,7 @@
 abstract class Routes {
   static const initial = "/";
-  static const login = "/login";
-  static const signup = "/signup";
+  // static const login = "/login";
+  // static const signup = "/signup";
   static const dashboard = "/dashboard";
   static const addTransaction = "/addTransaction";
   static const noInternet = "/no_internet";
@@ -13,4 +13,5 @@ abstract class Routes {
   static const numberScreen = '/numbeScreen';
   static const verificaitonScreen = '/verificaitonScreen';
   static const locationScreen = '/locationScreen';
+  static const loginScreen = '/loginScreen';
 }

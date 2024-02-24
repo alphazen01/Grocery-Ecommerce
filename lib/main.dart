@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:grocery/app/core/app_colors.dart';
 import 'package:grocery/app/core/app_sizes.dart';
 import 'package:grocery/app/moduels/onboarding/bindings/splash_bindings.dart';
 import 'package:grocery/app/routes/pages.dart';
@@ -19,6 +20,10 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       theme: ThemeData(
+        appBarTheme: AppBarTheme(
+          backgroundColor: AppColors.appBackgroundColor,
+        ),
+        scaffoldBackgroundColor: AppColors.appBackgroundColor,
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),

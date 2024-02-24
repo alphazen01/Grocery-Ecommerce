@@ -5,6 +5,8 @@ import 'package:grocery/app/moduels/onboarding/bindings/number_bindings.dart';
 import 'package:grocery/app/moduels/onboarding/bindings/onboarding_bindings.dart';
 import 'package:grocery/app/moduels/onboarding/bindings/splash_bindings.dart';
 import 'package:grocery/app/moduels/onboarding/bindings/verification_bindings.dart';
+import 'package:grocery/app/moduels/onboarding/login/bindings/login_binding.dart';
+import 'package:grocery/app/moduels/onboarding/login/screen/login_screen.dart';
 import 'package:grocery/app/moduels/onboarding/screen/location_screen.dart';
 import 'package:grocery/app/moduels/onboarding/screen/number_screen.dart';
 import 'package:grocery/app/moduels/onboarding/screen/onbarding.dart';
@@ -53,6 +55,13 @@ class Pages {
       name: Routes.locationScreen,
       page: () => const LocationScreen(),
       binding: LocationBinding(),
+      transition: Transition.rightToLeft,
+      transitionDuration: const Duration(milliseconds: 300),
+    ),
+    GetPage(
+      name: Routes.loginScreen,
+      page: () => const LoginScreen(),
+      binding: LoginBinding(),
       transition: Transition.rightToLeft,
       transitionDuration: const Duration(milliseconds: 300),
     ),

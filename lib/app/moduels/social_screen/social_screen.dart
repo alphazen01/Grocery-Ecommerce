@@ -23,14 +23,22 @@ class SocialScreen extends GetView<SocialController> {
         child: Column(
           children: [
             //Background Image
-            Container(
-              width: screenWidth(),
-              height: getHeight(374),
-              decoration: const BoxDecoration(
-                  image: DecorationImage(
-                      image: AssetImage(AppImages.socialImage))),
+            CustomDelayedAnimation(
+              delay: 20,
+              dx: 0,
+              dy: -0.2,
+              child: Container(
+                width: screenWidth(),
+                height: getHeight(374),
+                decoration: const BoxDecoration(
+                    image: DecorationImage(
+                        image: AssetImage(AppImages.socialImage),
+                        fit: BoxFit.cover)),
+              ),
             ),
-
+            SizedBox(
+              height: getHeight(50),
+            ),
             Padding(
               padding: EdgeInsets.symmetric(horizontal: getWidth(24.5)),
               child: Column(
@@ -61,7 +69,7 @@ class SocialScreen extends GetView<SocialController> {
                             decoration: InputDecoration(
                                 contentPadding: const EdgeInsets.symmetric(
                                     vertical: 16, horizontal: 16),
-                                fillColor: Colors.white.withOpacity(0.5),
+                                fillColor: AppColors.textfieldFilColor,
                                 filled: true,
                                 // labelText: 'Mobile',
                                 // hintText: "mobile_number".tr,
@@ -83,12 +91,13 @@ class SocialScreen extends GetView<SocialController> {
                                 //   borderRadius: BorderRadius.circular(20),
                                 // ),
                                 focusedBorder: OutlineInputBorder(
-                                  borderRadius: BorderRadius.circular(20),
-                                ),
-                                enabledBorder: OutlineInputBorder(
                                     borderRadius: BorderRadius.circular(20),
                                     borderSide:
-                                        BorderSide(color: AppColors.green))),
+                                        BorderSide(color: AppColors.green)),
+                                enabledBorder: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(20),
+                                  borderSide: BorderSide.none,
+                                )),
                             initialCountryCode:
                                 controller.countryLetterCode.value,
                             keyboardType: TextInputType.number,

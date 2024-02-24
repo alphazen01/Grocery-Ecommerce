@@ -58,4 +58,6 @@ class AppColors {
   static Color linearProgressBackColor = const Color(0xffCED3DE);
   static Color installmentBackgroundColor = const Color(0xffF0F5FF);
   static Color barrierColor = const Color(0xffC4C4C4).withOpacity(0.12);
+  static Color appBackgroundColor = const Color(0xffC4C4C4);
+  static Color textfieldFilColor = const Color(0xffE2E2E2);
 }
