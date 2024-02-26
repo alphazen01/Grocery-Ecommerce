@@ -23,13 +23,18 @@ class VerificationScreen extends GetView<VerificationController> {
         iconTheme: const IconThemeData(
           color: Colors.white,
         ),
-        leading: IconButton(
-          onPressed: () {
-            Get.back();
-          },
-          icon: CustomImage(
-            path: AppIcons.arrowLeft,
-            color: AppColors.textColor4,
+        leading: CustomDelayedAnimation(
+          delay: 20,
+          dx: 0,
+          dy: -0.2,
+          child: IconButton(
+            onPressed: () {
+              Get.back();
+            },
+            icon: CustomImage(
+              path: AppIcons.arrowLeft,
+              color: AppColors.textColor4,
+            ),
           ),
         ),
       ),
@@ -56,16 +61,22 @@ class VerificationScreen extends GetView<VerificationController> {
               SizedBox(
                 height: getHeight(27.58),
               ),
-              CustomDelayedAnimation(
-                delay: 20,
-                dx: 0,
-                dy: -0.2,
-                child: CustomText(
-                  text: "Code",
-                  fontSize: getWidth(16),
-                  fontWeight: FontWeight.w600,
-                  color: AppColors.textColor5,
-                ),
+              Row(
+                children: [
+                  Expanded(
+                    child: CustomDelayedAnimation(
+                      delay: 20,
+                      dx: 0,
+                      dy: -0.2,
+                      child: CustomText(
+                        text: "Code",
+                        fontSize: getWidth(16),
+                        fontWeight: FontWeight.w600,
+                        color: AppColors.textColor5,
+                      ),
+                    ),
+                  ),
+                ],
               ),
               SizedBox(
                 height: getHeight(10),

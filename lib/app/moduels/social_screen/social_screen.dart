@@ -28,19 +28,25 @@ class SocialScreen extends GetView<SocialController> {
         child: Column(
           children: [
             //Background Image
-            CustomDelayedAnimation(
-              delay: 20,
-              dx: 0,
-              dy: -0.2,
-              child: Container(
-                padding: EdgeInsets.only(top: 20),
-                width: screenWidth(),
-                height: getHeight(374),
-                decoration: const BoxDecoration(
-                    image: DecorationImage(
-                        image: AssetImage(AppImages.socialImage),
-                        fit: BoxFit.cover)),
-              ),
+            Row(
+              children: [
+                Expanded(
+                  child: CustomDelayedAnimation(
+                    delay: 20,
+                    dx: 0,
+                    dy: -0.2,
+                    child: Container(
+                      padding: EdgeInsets.only(top: 20),
+                      width: screenWidth(),
+                      height: getHeight(374),
+                      decoration: const BoxDecoration(
+                          image: DecorationImage(
+                              image: AssetImage(AppImages.socialImage),
+                              fit: BoxFit.cover)),
+                    ),
+                  ),
+                ),
+              ],
             ),
             SizedBox(
               height: getHeight(50),
@@ -49,84 +55,101 @@ class SocialScreen extends GetView<SocialController> {
               padding: EdgeInsets.symmetric(horizontal: getWidth(24.5)),
               child: Column(
                 children: [
-                  CustomDelayedAnimation(
-                    delay: 20,
-                    dx: 0,
-                    dy: -0.2,
-                    child: CustomText(
-                      text: "Get your groceries with nectar",
-                      fontSize: getWidth(26),
-                      fontWeight: FontWeight.w600,
-                      color: AppColors.textColorBlack,
-                    ),
+                  Row(
+                    children: [
+                      Expanded(
+                        child: CustomDelayedAnimation(
+                          delay: 20,
+                          dx: 0,
+                          dy: -0.2,
+                          child: CustomText(
+                            text: "Get your groceries with nectar",
+                            fontSize: getWidth(26),
+                            fontWeight: FontWeight.w600,
+                            color: AppColors.textColorBlack,
+                          ),
+                        ),
+                      ),
+                    ],
                   ),
                   SizedBox(
                     height: getHeight(30.6),
                   ),
                   //Number Inputfield
-                  Obx(() => controller.countryLetterCode.value == ""
-                      ? const SizedBox()
-                      : CustomDelayedAnimation(
-                          delay: 20,
-                          dx: 0,
-                          dy: -0.2,
-                          child: IntlPhoneField(
-                            controller: controller.phoneController,
-                            decoration: InputDecoration(
-                                contentPadding: const EdgeInsets.symmetric(
-                                    vertical: 16, horizontal: 16),
-                                fillColor: AppColors.textfieldFilColor,
-                                filled: true,
-                                // labelText: 'Mobile',
-                                // hintText: "mobile_number".tr,
-                                labelStyle:
-                                    const TextStyle(color: Colors.black),
-                                helperStyle:
-                                    const TextStyle(color: Colors.black),
-                                // focusedBorder: OutlineInputBorder(
-                                //     borderRadius: BorderRadius.circular(6),
-                                //     borderSide: const BorderSide(
-                                //         color: Colors.black)
-                                // ),
-                                errorBorder: OutlineInputBorder(
-                                    borderRadius: BorderRadius.circular(6),
-                                    borderSide:
-                                        const BorderSide(color: Colors.red)),
-                                // border: GradientOutlineInputBorder(
-                                //   gradient: buttonTextFieldRadialGradient,
-                                //   borderRadius: BorderRadius.circular(20),
-                                // ),
-                                focusedBorder: OutlineInputBorder(
-                                    borderRadius: BorderRadius.circular(20),
-                                    borderSide:
-                                        BorderSide(color: AppColors.green)),
-                                enabledBorder: OutlineInputBorder(
-                                  borderRadius: BorderRadius.circular(20),
-                                  borderSide: BorderSide.none,
-                                )),
-                            initialCountryCode:
-                                controller.countryLetterCode.value,
-                            keyboardType: TextInputType.number,
-                            textInputAction: TextInputAction.done,
-                            inputFormatters: [
-                              FilteringTextInputFormatter.digitsOnly
-                            ],
-                            validator: (value) {
-                              if (value == null || value.number.isEmpty) {
-                                return 'Enter Phone Number';
-                              }
-                              return null;
-                            },
-                            onCountryChanged: (country) {
-                              controller.changeCountryCode(
-                                  country.code, "+${country.dialCode}");
-                            },
-                            onChanged: (phone) {
-                              controller.changeCountryCode(
-                                  phone.countryISOCode, phone.countryCode);
-                            },
-                          ),
-                        )),
+                  Row(
+                    children: [
+                      Expanded(
+                        child: Obx(() => controller.countryLetterCode.value ==
+                                ""
+                            ? const SizedBox()
+                            : CustomDelayedAnimation(
+                                delay: 20,
+                                dx: 0,
+                                dy: -0.2,
+                                child: IntlPhoneField(
+                                  controller: controller.phoneController,
+                                  decoration: InputDecoration(
+                                      contentPadding:
+                                          const EdgeInsets.symmetric(
+                                              vertical: 16, horizontal: 16),
+                                      fillColor: AppColors.textfieldFilColor,
+                                      filled: true,
+                                      // labelText: 'Mobile',
+                                      // hintText: "mobile_number".tr,
+                                      labelStyle:
+                                          const TextStyle(color: Colors.black),
+                                      helperStyle:
+                                          const TextStyle(color: Colors.black),
+                                      // focusedBorder: OutlineInputBorder(
+                                      //     borderRadius: BorderRadius.circular(6),
+                                      //     borderSide: const BorderSide(
+                                      //         color: Colors.black)
+                                      // ),
+                                      errorBorder: OutlineInputBorder(
+                                          borderRadius:
+                                              BorderRadius.circular(6),
+                                          borderSide: const BorderSide(
+                                              color: Colors.red)),
+                                      // border: GradientOutlineInputBorder(
+                                      //   gradient: buttonTextFieldRadialGradient,
+                                      //   borderRadius: BorderRadius.circular(20),
+                                      // ),
+                                      focusedBorder: OutlineInputBorder(
+                                          borderRadius:
+                                              BorderRadius.circular(20),
+                                          borderSide: BorderSide(
+                                              color: AppColors.green)),
+                                      enabledBorder: OutlineInputBorder(
+                                        borderRadius: BorderRadius.circular(20),
+                                        borderSide: BorderSide.none,
+                                      )),
+                                  initialCountryCode:
+                                      controller.countryLetterCode.value,
+                                  keyboardType: TextInputType.number,
+                                  textInputAction: TextInputAction.done,
+                                  inputFormatters: [
+                                    FilteringTextInputFormatter.digitsOnly
+                                  ],
+                                  validator: (value) {
+                                    if (value == null || value.number.isEmpty) {
+                                      return 'Enter Phone Number';
+                                    }
+                                    return null;
+                                  },
+                                  onCountryChanged: (country) {
+                                    controller.changeCountryCode(
+                                        country.code, "+${country.dialCode}");
+                                  },
+                                  onChanged: (phone) {
+                                    controller.changeCountryCode(
+                                        phone.countryISOCode,
+                                        phone.countryCode);
+                                  },
+                                ),
+                              )),
+                      ),
+                    ],
+                  ),
                   SizedBox(
                     height: getHeight(40),
                   ),
@@ -144,22 +167,34 @@ class SocialScreen extends GetView<SocialController> {
                   SizedBox(
                     height: getHeight(37.8),
                   ),
-                  CustomSocialButton(
-                    onTap: () {
-                      Get.toNamed(Routes.numberScreen);
-                    },
-                    title: 'Continue with Google',
-                    imagePath: AppIcons.googleIcon,
-                    buttonColor: AppColors.blue3rd,
+                  Row(
+                    children: [
+                      Expanded(
+                        child: CustomSocialButton(
+                          onTap: () {
+                            Get.toNamed(Routes.numberScreen);
+                          },
+                          title: 'Continue with Google',
+                          imagePath: AppIcons.googleIcon,
+                          buttonColor: AppColors.blue3rd,
+                        ),
+                      ),
+                    ],
                   ),
                   SizedBox(
                     height: getHeight(20),
                   ),
-                  CustomSocialButton(
-                    onTap: () {},
-                    title: 'Continue with Facebook',
-                    imagePath: AppIcons.facebookIcon,
-                    buttonColor: AppColors.blue4th,
+                  Row(
+                    children: [
+                      Expanded(
+                        child: CustomSocialButton(
+                          onTap: () {},
+                          title: 'Continue with Facebook',
+                          imagePath: AppIcons.facebookIcon,
+                          buttonColor: AppColors.blue4th,
+                        ),
+                      ),
+                    ],
                   ),
                 ],
               ),
