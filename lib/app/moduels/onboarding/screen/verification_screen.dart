@@ -128,7 +128,6 @@ class VerificationScreen extends GetView<VerificationController> {
                   textColor: AppColors.green,
                   textSize: getWidth(18),
                   fontWeight: FontWeight.w600,
-                  textDecoration: TextDecoration.none,
                 ),
               ),
             ),

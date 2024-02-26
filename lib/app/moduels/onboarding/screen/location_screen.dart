@@ -11,7 +11,6 @@ import 'package:grocery/app/global_widgets/custom_image.dart';
 import 'package:grocery/app/global_widgets/custom_text.dart';
 import 'package:grocery/app/global_widgets/custom_textfield.dart';
 import 'package:grocery/app/moduels/onboarding/controller/location_controller.dart';
-import 'package:grocery/app/moduels/onboarding/login/screen/login_screen.dart';
 import 'package:grocery/app/routes/routes.dart';
 
 class LocationScreen extends GetView<LocationController> {

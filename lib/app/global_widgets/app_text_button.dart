@@ -8,14 +8,12 @@ class AppTextButton extends StatefulWidget {
     required this.onTap,
     this.textColor,
     this.textSize,
-    this.textDecoration,
     this.fontWeight,
   });
   final String text;
   final Color? textColor;
   final double? textSize;
   final Function onTap;
-  final TextDecoration? textDecoration;
   final FontWeight? fontWeight;
 
   @override
@@ -29,7 +27,7 @@ class _AppTextButtonState extends State<AppTextButton> {
   @override
   void initState() {
     color = widget.textColor ?? Colors.black87;
-    size = widget.textSize ?? 14;
+    size = widget.textSize ?? 16;
     super.initState();
   }
 
@@ -46,7 +44,6 @@ class _AppTextButtonState extends State<AppTextButton> {
         style: TextStyle(
           color: color,
           fontWeight: widget.fontWeight ?? FontWeight.bold,
-          decoration: widget.textDecoration ?? TextDecoration.underline,
           decorationColor: color.withOpacity(0.6),
           fontSize: getWidth(size),
         ),

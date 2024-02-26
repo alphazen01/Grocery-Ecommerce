@@ -18,6 +18,11 @@ class SocialScreen extends GetView<SocialController> {
 
   @override
   Widget build(BuildContext context) {
+    SystemChrome.setEnabledSystemUIMode(SystemUiMode.manual,
+        overlays: [SystemUiOverlay.top]);
+    SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
+        statusBarColor: AppColors.appBackgroundColor,
+        statusBarIconBrightness: Brightness.light));
     return Scaffold(
       body: SingleChildScrollView(
         child: Column(
@@ -28,6 +33,7 @@ class SocialScreen extends GetView<SocialController> {
               dx: 0,
               dy: -0.2,
               child: Container(
+                padding: EdgeInsets.only(top: 20),
                 width: screenWidth(),
                 height: getHeight(374),
                 decoration: const BoxDecoration(

@@ -8,14 +8,15 @@ class CustomTextFormField extends StatelessWidget {
   final TextEditingController controller;
   final bool? obSecure;
   final bool? readOnly;
-  const CustomTextFormField({
-    super.key,
-    required this.controller,
-    this.hintText,
-    this.suffixIcon,
-    this.obSecure,
-    this.readOnly,
-  });
+  final TextInputType? keboardType;
+  const CustomTextFormField(
+      {super.key,
+      required this.controller,
+      this.hintText,
+      this.suffixIcon,
+      this.obSecure,
+      this.readOnly,
+      this.keboardType});
 
   @override
   Widget build(BuildContext context) {
@@ -25,6 +26,7 @@ class CustomTextFormField extends StatelessWidget {
       decoration: BoxDecoration(
           border: Border(bottom: BorderSide(color: AppColors.texfieldBorder))),
       child: TextFormField(
+        keyboardType: keboardType,
         controller: controller,
         obscureText: obSecure ?? false,
         readOnly: readOnly ?? false,

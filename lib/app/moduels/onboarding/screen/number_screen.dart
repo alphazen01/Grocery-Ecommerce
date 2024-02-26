@@ -1,6 +1,6 @@
+import 'package:easy_date_timeline/easy_date_timeline.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-
 import 'package:get/get.dart';
 import 'package:grocery/app/animation/custom_delay_animation.dart';
 import 'package:grocery/app/core/app_colors.dart';
@@ -17,18 +17,25 @@ class NumberScreen extends GetView<NumberController> {
 
   @override
   Widget build(BuildContext context) {
+    SystemChrome.setEnabledSystemUIMode(SystemUiMode.manual,
+        overlays: [SystemUiOverlay.top]);
+    SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
+        statusBarColor: AppColors.appBackgroundColor,
+        statusBarIconBrightness: Brightness.light));
     return Scaffold(
       appBar: AppBar(
-        iconTheme: const IconThemeData(
-          color: Colors.white,
-        ),
-        leading: IconButton(
-          onPressed: () {
-            Get.back();
-          },
-          icon: CustomImage(
-            path: AppIcons.arrowLeft,
-            color: AppColors.textColor4,
+        leading: CustomDelayedAnimation(
+          delay: 20,
+          dx: 0,
+          dy: -0.2,
+          child: IconButton(
+            onPressed: () {
+              Get.back();
+            },
+            icon: CustomImage(
+              path: AppIcons.arrowLeft,
+              color: AppColors.textColor4,
+            ),
           ),
         ),
       ),
@@ -69,7 +76,7 @@ class NumberScreen extends GetView<NumberController> {
               SizedBox(
                 height: getHeight(10),
               ),
-              //Number Inputfield
+              //Number field
               Obx(() => controller.countryLetterCode.value == ""
                   ? const SizedBox()
                   : CustomDelayedAnimation(
@@ -134,7 +141,7 @@ class NumberScreen extends GetView<NumberController> {
         ),
       ),
       floatingActionButton: Padding(
-        padding: EdgeInsets.only(right: getWidth(25)),
+        padding: EdgeInsets.only(right: getWidth(25), left: getWidth(25)),
         child: SizedBox(
           height: getWidth(67),
           width: getWidth(67),
@@ -147,9 +154,6 @@ class NumberScreen extends GetView<NumberController> {
             backgroundColor: AppColors.green,
             onPressed: () {
               Get.toNamed(Routes.verificaitonScreen);
-              // Navigator.push(context,
-              //     MaterialPageRoute(builder: (_) => VerificationScreen()));
-              print("object");
             },
             shape:
                 RoundedRectangleBorder(borderRadius: BorderRadius.circular(50)),

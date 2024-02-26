@@ -14,4 +14,5 @@ abstract class Routes {
   static const verificaitonScreen = '/verificaitonScreen';
   static const locationScreen = '/locationScreen';
   static const loginScreen = '/loginScreen';
+  static const signupScreen = '/signupScreen';
 }
