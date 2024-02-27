@@ -207,7 +207,10 @@ class LoginScreen extends GetView<LoginController> {
                             dx: 0,
                             dy: -0.2,
                             child: CustomSubmitButton(
-                                onTap: () {}, title: "Log In")),
+                                onTap: () {
+                                  Get.offAndToNamed(Routes.dashBoard);
+                                },
+                                title: "Log In")),
                       ),
                     ],
                   ),

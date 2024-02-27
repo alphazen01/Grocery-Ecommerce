@@ -1,8 +1,11 @@
 import 'package:get/get.dart';
+import 'package:grocery/app/moduels/dashboard/bindings/dashboard_bindings.dart';
+import 'package:grocery/app/moduels/dashboard/dashboard_screen.dart';
 import 'package:grocery/app/moduels/onboarding/bindings/location_bindings.dart';
 
 import 'package:grocery/app/moduels/onboarding/bindings/number_bindings.dart';
 import 'package:grocery/app/moduels/onboarding/bindings/onboarding_bindings.dart';
+import 'package:grocery/app/moduels/onboarding/bindings/social_binding.dart';
 import 'package:grocery/app/moduels/onboarding/bindings/splash_bindings.dart';
 import 'package:grocery/app/moduels/onboarding/bindings/verification_bindings.dart';
 import 'package:grocery/app/moduels/onboarding/login/bindings/login_binding.dart';
@@ -10,12 +13,11 @@ import 'package:grocery/app/moduels/onboarding/login/login_screen.dart';
 import 'package:grocery/app/moduels/onboarding/screen/location_screen.dart';
 import 'package:grocery/app/moduels/onboarding/screen/number_screen.dart';
 import 'package:grocery/app/moduels/onboarding/screen/onbarding.dart';
+import 'package:grocery/app/moduels/onboarding/screen/social_screen.dart';
 import 'package:grocery/app/moduels/onboarding/screen/splash.dart';
 import 'package:grocery/app/moduels/onboarding/screen/verification_screen.dart';
 import 'package:grocery/app/moduels/onboarding/signup/bindings/signup_binding.dart';
 import 'package:grocery/app/moduels/onboarding/signup/signup_screen.dart';
-import 'package:grocery/app/moduels/social_screen/bindings/social_bindings.dart';
-import 'package:grocery/app/moduels/social_screen/social_screen.dart';
 import 'package:grocery/app/routes/routes.dart';
 
 class Pages {
@@ -71,6 +73,13 @@ class Pages {
       name: Routes.signupScreen,
       page: () => const SignupScreen(),
       binding: SignupBinding(),
+      transition: Transition.rightToLeft,
+      transitionDuration: const Duration(milliseconds: 300),
+    ),
+    GetPage(
+      name: Routes.dashBoard,
+      page: () => const DashBoardScreen(),
+      binding: DashBoardBindings(),
       transition: Transition.rightToLeft,
       transitionDuration: const Duration(milliseconds: 300),
     ),
