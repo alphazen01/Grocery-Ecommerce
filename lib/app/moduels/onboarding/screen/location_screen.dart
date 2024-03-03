@@ -19,45 +19,42 @@ class LocationScreen extends GetView<LocationController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        iconTheme: const IconThemeData(
-          color: Colors.black,
-        ),
-        leading: IconButton(
-          onPressed: () {
-            Get.back();
-          },
-          icon: CustomImage(
-            path: AppIcons.arrowLeft,
-            color: AppColors.textColor4,
+        appBar: AppBar(
+          iconTheme: const IconThemeData(
+            color: Colors.black,
+          ),
+          leading: IconButton(
+            onPressed: () {
+              Get.back();
+            },
+            icon: CustomImage(
+              path: AppIcons.arrowLeft,
+              color: AppColors.textColor4,
+            ),
           ),
         ),
-      ),
-      body: SingleChildScrollView(
-        child: Padding(
-          padding: EdgeInsets.symmetric(horizontal: getWidth(25)),
+        body: Padding(
+          padding: EdgeInsets.symmetric(horizontal: getWidth(20)),
           child: Column(
             children: [
-              SizedBox(
-                height: getHeight(45),
-              ),
-              //ImageSection
-              CustomDelayedAnimation(
-                delay: 20,
-                dx: 0,
-                dy: -0.2,
-                child: Container(
-                  height: getHeight(170.69),
-                  decoration: const BoxDecoration(
-                      image: DecorationImage(
-                    image: AssetImage(AppImages.locationImage),
-                  )),
+              //Image Section
+              Expanded(
+                child: CustomDelayedAnimation(
+                  delay: 20,
+                  dx: 0,
+                  dy: -0.2,
+                  child: Container(
+                    decoration: const BoxDecoration(
+                        image: DecorationImage(
+                      image: AssetImage(AppImages.locationImage),
+                    )),
+                  ),
                 ),
               ),
               SizedBox(
                 height: getHeight(40.15),
               ),
-              //textSection
+              //Title Section
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
@@ -74,6 +71,7 @@ class LocationScreen extends GetView<LocationController> {
                   ),
                 ],
               ),
+              //Sub title Section
               Padding(
                 padding: EdgeInsets.symmetric(horizontal: getWidth(25)),
                 child: CustomDelayedAnimation(
@@ -83,6 +81,7 @@ class LocationScreen extends GetView<LocationController> {
                   child: CustomText(
                     text:
                         "Swithch on your location to stay in tune with what’s happening in your area",
+                    textAlign: TextAlign.center,
                     fontSize: getWidth(16),
                     fontWeight: FontWeight.w400,
                     color: AppColors.textColor3,
@@ -92,48 +91,54 @@ class LocationScreen extends GetView<LocationController> {
               SizedBox(
                 height: getHeight(90),
               ),
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  CustomDelayedAnimation(
-                    delay: 20,
-                    dx: 0,
-                    dy: -0.2,
-                    child: CustomText(
-                      text: "Your Zone",
-                      fontSize: getWidth(16),
-                      fontWeight: FontWeight.w400,
-                      color: AppColors.textColor3,
+              SafeArea(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    //Textfiled Section And Button Section
+                    CustomDelayedAnimation(
+                      delay: 20,
+                      dx: 0,
+                      dy: -0.2,
+                      child: CustomText(
+                        text: "Your Zone",
+                        fontSize: getWidth(16),
+                        fontWeight: FontWeight.w400,
+                        color: AppColors.textColor3,
+                      ),
                     ),
-                  ),
-                  SizedBox(
-                    height: getHeight(10),
-                  ),
-                  CustomDelayedAnimation(
-                    delay: 20,
-                    dx: 0,
-                    dy: -0.2,
-                    child: CustomTextFormField(
-                      controller: controller.locationNameController,
-                      hintText: "Type your location",
+                    SizedBox(
+                      height: getHeight(10),
                     ),
-                  ),
-                  SizedBox(
-                    height: getHeight(40),
-                  ),
-                  CustomSubmitButton(
-                      onTap: () {
-                        // Navigator.push(context,
-                        //     MaterialPageRoute(builder: (_) => LoginScreen()));
-                        Get.toNamed(Routes.loginScreen);
-                      },
-                      title: "Submit")
-                ],
+                    CustomDelayedAnimation(
+                      delay: 20,
+                      dx: 0,
+                      dy: -0.2,
+                      child: CustomTextFormField(
+                        controller: controller.locationNameController,
+                        hintText: "Type your location",
+                      ),
+                    ),
+                    SizedBox(
+                      height: getHeight(40),
+                    ),
+                    CustomDelayedAnimation(
+                      delay: 20,
+                      dx: 0,
+                      dy: -0.2,
+                      child: CustomSubmitButton(
+                          onTap: () {
+                            // Navigator.push(context,
+                            //     MaterialPageRoute(builder: (_) => LoginScreen()));
+                            Get.toNamed(Routes.loginScreen);
+                          },
+                          title: "Submit"),
+                    ),
+                  ],
+                ),
               ),
             ],
           ),
-        ),
-      ),
-    );
+        ));
   }
 }

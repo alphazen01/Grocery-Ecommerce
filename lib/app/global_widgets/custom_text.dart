@@ -9,6 +9,7 @@ class CustomText extends StatelessWidget {
   final Color? underlineColor;
   final double? letterSpaching;
   final TextDecoration? textDecoration;
+  final TextAlign? textAlign;
 
   const CustomText(
       {super.key,
@@ -19,12 +20,14 @@ class CustomText extends StatelessWidget {
       this.color = const Color(0xffFAFAFA),
       this.underlineColor,
       this.letterSpaching,
+      this.textAlign,
       this.textDecoration});
 
   @override
   Widget build(BuildContext context) {
     return Text(
       text,
+      textAlign: textAlign ?? TextAlign.start,
       style: TextStyle(
           fontSize: fontSize,
           color: color,
