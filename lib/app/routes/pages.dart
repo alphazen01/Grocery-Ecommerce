@@ -1,6 +1,8 @@
 import 'package:get/get.dart';
 import 'package:grocery/app/moduels/dashboard/bindings/dashboard_bindings.dart';
 import 'package:grocery/app/moduels/dashboard/dashboard_screen.dart';
+import 'package:grocery/app/moduels/home/bindings/home_binding.dart';
+import 'package:grocery/app/moduels/home/screen/home_screen.dart';
 import 'package:grocery/app/moduels/onboarding/bindings/location_bindings.dart';
 
 import 'package:grocery/app/moduels/onboarding/bindings/number_bindings.dart';
@@ -80,6 +82,13 @@ class Pages {
       name: Routes.dashBoard,
       page: () => const DashBoardScreen(),
       binding: DashBoardBindings(),
+      transition: Transition.rightToLeft,
+      transitionDuration: const Duration(milliseconds: 300),
+    ),
+    GetPage(
+      name: Routes.homeScreen,
+      page: () => const HomeScreen(),
+      binding: HomeBindings(),
       transition: Transition.rightToLeft,
       transitionDuration: const Duration(milliseconds: 300),
     ),

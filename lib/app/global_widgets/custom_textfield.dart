@@ -5,6 +5,7 @@ import 'package:grocery/app/core/app_sizes.dart';
 class CustomTextFormField extends StatelessWidget {
   final String? hintText;
   final Widget? suffixIcon;
+  final Widget? prefixIcon;
   final TextEditingController controller;
   final bool? obSecure;
   final bool? readOnly;
@@ -14,6 +15,7 @@ class CustomTextFormField extends StatelessWidget {
       required this.controller,
       this.hintText,
       this.suffixIcon,
+      this.prefixIcon,
       this.obSecure,
       this.readOnly,
       this.keboardType});
@@ -36,6 +38,7 @@ class CustomTextFormField extends StatelessWidget {
               fontSize: getWidth(14),
               color: AppColors.textColor3,
             ),
+            prefixIcon: prefixIcon,
             suffixIcon: suffixIcon,
             focusedBorder: InputBorder.none,
             enabledBorder: InputBorder.none),

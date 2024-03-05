@@ -61,4 +61,5 @@ class AppColors {
   static Color barrierColor = const Color(0xffC4C4C4).withOpacity(0.12);
   static Color appBackgroundColor = const Color(0xffC4C4C4);
   static Color textfieldFilColor = const Color(0xffE2E2E2);
+  static Color searchFieldColor = const Color(0xffF2F3F2);
 }
