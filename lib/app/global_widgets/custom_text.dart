@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:grocery/app/core/app_colors.dart';
+import 'package:grocery/app/core/app_sizes.dart';
 
 class CustomText extends StatelessWidget {
   final String text;
-  final FontWeight fontWeight;
-  final double fontSize;
+  final FontWeight? fontWeight;
+  final double? fontSize;
   final double? fontHeight;
   final Color? color;
   final Color? underlineColor;
@@ -14,10 +16,10 @@ class CustomText extends StatelessWidget {
   const CustomText(
       {super.key,
       required this.text,
-      required this.fontSize,
-      required this.fontWeight,
+      this.fontSize,
+      this.fontWeight,
       this.fontHeight,
-      this.color = const Color(0xffFAFAFA),
+      this.color,
       this.underlineColor,
       this.letterSpaching,
       this.textAlign,
@@ -29,9 +31,9 @@ class CustomText extends StatelessWidget {
       text,
       textAlign: textAlign ?? TextAlign.start,
       style: TextStyle(
-          fontSize: fontSize,
-          color: color,
-          fontWeight: fontWeight,
+          fontSize: fontSize ?? getWidth(14),
+          color: color ?? AppColors.mainColor,
+          fontWeight: fontWeight ?? FontWeight.w700,
           fontFamily: "Nunito-Bold",
           letterSpacing: letterSpaching,
           decoration: textDecoration,

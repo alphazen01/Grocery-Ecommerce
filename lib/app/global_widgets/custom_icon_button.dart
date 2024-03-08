@@ -4,18 +4,18 @@ import 'package:grocery/app/core/app_colors.dart';
 import 'package:grocery/app/core/app_sizes.dart';
 import 'package:grocery/app/global_widgets/custom_text.dart';
 
-class CustomSubmitButton extends StatelessWidget {
-  final String title;
+class CustomIconButton extends StatelessWidget {
+  final IconData? icon;
   final VoidCallback onTap;
   final double? borderWidth;
   final Color? textColor;
   final Color? splashColor;
   final Gradient? gradientColor;
 
-  const CustomSubmitButton(
+  const CustomIconButton(
       {super.key,
       required this.onTap,
-      required this.title,
+      this.icon,
       this.gradientColor,
       this.textColor,
       this.splashColor,
@@ -23,34 +23,29 @@ class CustomSubmitButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return CustomDelayedAnimation(
-      delay: 20,
-      dx: 0,
-      dy: -0.2,
+    return Card(
+      elevation: 5,
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(17),
+      ),
       child: Container(
-        height: getWidth(67),
+        height: getWidth(45),
+        width: getWidth(45),
         decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(getWidth(19)),
+          borderRadius: BorderRadius.circular(getWidth(17)),
 
           // color: color
         ),
         child: Material(
-          borderRadius: BorderRadius.circular(getWidth(19)),
+          borderRadius: BorderRadius.circular(getWidth(17)),
           color: AppColors.green,
           child: InkWell(
-            borderRadius: BorderRadius.circular(getWidth(19)),
+            borderRadius: BorderRadius.circular(getWidth(17)),
             splashColor: splashColor ?? Colors.white24,
             onTap: onTap,
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                CustomText(
-                  text: title,
-                  fontSize: getWidth(20),
-                  fontWeight: FontWeight.w700,
-                  color: textColor ?? const Color(0xffFAFAFA),
-                )
-              ],
+            child: Icon(
+              icon ?? Icons.add,
+              color: AppColors.white,
             ),
           ),
         ),

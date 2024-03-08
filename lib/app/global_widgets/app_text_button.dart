@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:grocery/app/core/app_colors.dart';
 import 'package:grocery/app/core/app_sizes.dart';
 
 class AppTextButton extends StatefulWidget {
@@ -26,7 +27,7 @@ class _AppTextButtonState extends State<AppTextButton> {
 
   @override
   void initState() {
-    color = widget.textColor ?? Colors.black87;
+    color = widget.textColor ?? AppColors.green;
     size = widget.textSize ?? 16;
     super.initState();
   }
@@ -61,7 +62,7 @@ class _AppTextButtonState extends State<AppTextButton> {
   void _onTapUp(TapUpDetails details) {
     Future.delayed(const Duration(milliseconds: 150)).then((value) {
       setState(() {
-        color = widget.textColor ?? Colors.black87;
+        color = widget.textColor ?? AppColors.green;
         // size = widget.textSize ?? 14;
       });
     });

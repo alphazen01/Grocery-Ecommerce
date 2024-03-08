@@ -1,14 +1,17 @@
-import 'dart:ffi';
-
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:grocery/app/animation/custom_delay_animation.dart';
 import 'package:grocery/app/core/app_colors.dart';
 import 'package:grocery/app/core/app_images.dart';
 import 'package:grocery/app/core/app_sizes.dart';
+import 'package:grocery/app/global_widgets/app_text_button.dart';
+import 'package:grocery/app/global_widgets/custom_items_widget.dart';
+import 'package:grocery/app/global_widgets/custom_submit_button.dart';
+import 'package:grocery/app/global_widgets/custom_icon_button.dart';
 import 'package:grocery/app/global_widgets/custom_text.dart';
 import 'package:grocery/app/global_widgets/custom_textfield.dart';
 import 'package:grocery/app/moduels/home/controller/home_controller.dart';
+import 'package:grocery/app/moduels/home/models/products_model.dart';
 
 class HomeScreen extends GetView<HomeController> {
   const HomeScreen({super.key});
@@ -112,8 +115,9 @@ class HomeScreen extends GetView<HomeController> {
               ),
             ),
             SizedBox(
-              height: getHeight(10),
+              height: getHeight(20),
             ),
+            //Indicator Section
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: List.generate(
@@ -121,19 +125,73 @@ class HomeScreen extends GetView<HomeController> {
                   (indexDots) => Obx(() {
                         return Padding(
                           padding:
-                              EdgeInsets.symmetric(horizontal: getWidth(10)),
+                              EdgeInsets.symmetric(horizontal: getWidth(5)),
                           child: CircleAvatar(
-                            radius: 10,
+                            radius: 5,
                             backgroundColor: controller.currentPage == indexDots
-                                ? Colors.red
-                                : Colors.green,
+                                ? AppColors.white
+                                : AppColors.green,
                           ),
                         );
                       })),
-            )
+            ),
+            SizedBox(
+              height: getHeight(30),
+            ),
+            //Exclusive offer section
+            HorizontalContainer(
+              title: "Exclusive Offer ",
+              onTap: () {},
+              productList: exclusiveItemsList,
+            ),
           ],
         ),
       ),
+    );
+  }
+}
+
+class HorizontalContainer extends StatelessWidget {
+  const HorizontalContainer({
+    super.key,
+    required this.title,
+    required this.onTap,
+    required this.productList,
+  });
+  final String title;
+  final VoidCallback onTap;
+  final List<ProductsModel> productList;
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: [
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            CustomText(
+              text: title,
+              fontSize: getWidth(24),
+              color: AppColors.mainColor,
+            ),
+            AppTextButton(text: "See all", onTap: onTap)
+          ],
+        ),
+        SizedBox(
+          height: getHeight(50),
+        ),
+        SizedBox(
+          height: getWidth(250),
+          child: ListView.builder(
+              shrinkWrap: true,
+              scrollDirection: Axis.horizontal,
+              itemCount: productList.length,
+              itemBuilder: (context, index) {
+                return CustomItemsWidzet(
+                  productsModel: productList[index],
+                );
+              }),
+        ),
+      ],
     );
   }
 }

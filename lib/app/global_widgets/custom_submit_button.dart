@@ -1,28 +1,24 @@
 import 'package:flutter/material.dart';
 import 'package:grocery/app/animation/custom_delay_animation.dart';
+import 'package:grocery/app/core/app_colors.dart';
 import 'package:grocery/app/core/app_sizes.dart';
-import 'package:grocery/app/global_widgets/custom_image.dart';
 import 'package:grocery/app/global_widgets/custom_text.dart';
 
-class CustomSocialButton extends StatelessWidget {
+class CustomSubmitButton extends StatelessWidget {
   final String title;
-  final String imagePath;
   final VoidCallback onTap;
   final double? borderWidth;
   final Color? textColor;
   final Color? splashColor;
-  final Color buttonColor;
   final Gradient? gradientColor;
 
-  const CustomSocialButton(
+  const CustomSubmitButton(
       {super.key,
       required this.onTap,
       required this.title,
-      required this.imagePath,
       this.gradientColor,
       this.textColor,
       this.splashColor,
-      required this.buttonColor,
       this.borderWidth});
 
   @override
@@ -45,7 +41,7 @@ class CustomSocialButton extends StatelessWidget {
           ),
           child: Material(
             borderRadius: BorderRadius.circular(getWidth(19)),
-            color: buttonColor,
+            color: AppColors.green,
             child: InkWell(
               borderRadius: BorderRadius.circular(getWidth(19)),
               splashColor: splashColor ?? Colors.white24,
@@ -53,17 +49,11 @@ class CustomSocialButton extends StatelessWidget {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  CustomImage(
-                    path: imagePath,
-                  ),
-                  SizedBox(
-                    width: getWidth(10),
-                  ),
                   CustomText(
                     text: title,
-                    fontSize: getWidth(18),
+                    fontSize: getWidth(20),
                     fontWeight: FontWeight.w700,
-                    color: textColor ?? const Color(0xffFCFCFC),
+                    color: textColor ?? const Color(0xffFAFAFA),
                   )
                 ],
               ),

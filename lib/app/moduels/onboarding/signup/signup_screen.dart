@@ -5,7 +5,7 @@ import 'package:grocery/app/core/app_colors.dart';
 import 'package:grocery/app/core/app_images.dart';
 import 'package:grocery/app/core/app_sizes.dart';
 import 'package:grocery/app/global_widgets/app_text_button.dart';
-import 'package:grocery/app/global_widgets/custom_button.dart';
+import 'package:grocery/app/global_widgets/custom_submit_button.dart';
 import 'package:grocery/app/global_widgets/custom_text.dart';
 import 'package:grocery/app/global_widgets/custom_textfield.dart';
 import 'package:grocery/app/moduels/onboarding/signup/controller/signup_controller.dart';

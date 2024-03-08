@@ -7,7 +7,7 @@ import 'package:grocery/app/core/app_colors.dart';
 import 'package:grocery/app/core/app_icons.dart';
 import 'package:grocery/app/core/app_images.dart';
 import 'package:grocery/app/core/app_sizes.dart';
-import 'package:grocery/app/global_widgets/custom_button.dart';
+import 'package:grocery/app/global_widgets/custom_submit_button.dart';
 import 'package:grocery/app/global_widgets/custom_image.dart';
 import 'package:grocery/app/global_widgets/custom_text.dart';
 import 'package:grocery/app/moduels/onboarding/controller/onboarding_controller.dart';
@@ -55,7 +55,7 @@ class OnbordingScreen extends GetView<SplashController> {
                 text: "Welcome",
                 fontSize: getWidth(48),
                 fontWeight: FontWeight.w600,
-                // color: AppColors.mainColor,
+                color: AppColors.white,
                 fontHeight: getHeight(0.8),
               ),
             ),
@@ -67,7 +67,7 @@ class OnbordingScreen extends GetView<SplashController> {
                 text: "to our store",
                 fontSize: getWidth(48),
                 fontWeight: FontWeight.w600,
-                // color: AppColors.mainColor,
+                color: AppColors.white,
               ),
             ),
             CustomDelayedAnimation(

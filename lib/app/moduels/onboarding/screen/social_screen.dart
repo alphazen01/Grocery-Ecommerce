@@ -165,7 +165,9 @@ class SocialScreen extends GetView<SocialController> {
                   dx: 0,
                   dy: -0.2,
                   child: CustomSocialButton(
-                    onTap: () {},
+                    onTap: () {
+                      Get.toNamed(Routes.dashBoard);
+                    },
                     title: 'Continue with Facebook',
                     imagePath: AppIcons.facebookIcon,
                     buttonColor: AppColors.blue4th,
