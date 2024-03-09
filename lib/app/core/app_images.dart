@@ -15,4 +15,8 @@ class AppImages {
   static const String pinapple = "assets/images/pinapple.png";
   static const String orange = "assets/images/orange.png";
   static const String mango = "assets/images/mango.png";
+  static const String morich = "assets/images/morich.png";
+  static const String capsicum = "assets/images/capsicum.png";
+  static const String begun = "assets/images/begun.png";
+  static const String carrots = "assets/images/carrots.png";
 }
