@@ -19,44 +19,46 @@ class SeeAllProducts extends GetView<HomeController> {
     final List<ProductsModel> productsModel =
         arguments["products"] ?? "nothing";
     return Scaffold(
-      body: CustomScrollView(
-        slivers: [
-          SliverAppBar(
-            centerTitle: true,
-            expandedHeight: 100,
-            title: CustomText(
-              text: title,
-              fontSize: getWidth(18),
-            ),
-          ),
-          SliverPadding(
-            padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
-            sliver: SliverGrid(
-              gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
-                mainAxisExtent: 260,
-                maxCrossAxisExtent: 198.0,
-                mainAxisSpacing: 10.0,
-                crossAxisSpacing: 8.0,
-                childAspectRatio: 4.0,
-              ),
-              delegate: SliverChildBuilderDelegate(
-                (BuildContext context, int index) {
-                  return InkWell(
-                      onTap: () {
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (_) => ProductsDetailsScreen(
-                                    productsModel: productsModel[index])));
-                      },
-                      child: CustomItemsWidzet(
-                          productsModel: productsModel[index]));
-                },
-                childCount: productsModel.length,
+      body: SafeArea(
+        child: CustomScrollView(
+          slivers: [
+            SliverAppBar(
+              centerTitle: true,
+              expandedHeight: 100,
+              title: CustomText(
+                text: title,
+                fontSize: getWidth(18),
               ),
             ),
-          )
-        ],
+            SliverPadding(
+              padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
+              sliver: SliverGrid(
+                gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
+                  mainAxisExtent: 260,
+                  maxCrossAxisExtent: 198.0,
+                  mainAxisSpacing: 10.0,
+                  crossAxisSpacing: 8.0,
+                  childAspectRatio: 4.0,
+                ),
+                delegate: SliverChildBuilderDelegate(
+                  (BuildContext context, int index) {
+                    return InkWell(
+                        onTap: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (_) => ProductsDetailsScreen(
+                                      productsModel: productsModel[index])));
+                        },
+                        child: CustomItemsWidzet(
+                            productsModel: productsModel[index]));
+                  },
+                  childCount: productsModel.length,
+                ),
+              ),
+            )
+          ],
+        ),
       ),
     );
   }

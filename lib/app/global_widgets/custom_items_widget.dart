@@ -22,12 +22,14 @@ class CustomItemsWidzet extends StatelessWidget {
       child: Container(
         width: getWidth(170),
         decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(15), color: Colors.white),
+            borderRadius: BorderRadius.circular(15), color: AppColors.green2),
         child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Container(
+              margin: EdgeInsets.only(top: getWidth(10)),
               decoration: BoxDecoration(
-                  color: Colors.white,
+                  color: Colors.transparent,
                   borderRadius: BorderRadius.circular(getWidth(15))),
               height: getWidth(100),
               width: getWidth(100),
@@ -35,43 +37,43 @@ class CustomItemsWidzet extends StatelessWidget {
                 productsModel.imagePath,
               ),
             ),
-            Expanded(
-              child: Padding(
-                padding: EdgeInsets.symmetric(
-                    horizontal: getWidth(14), vertical: getHeight(10)),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    SizedBox(
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          CustomText(
-                            text: productsModel.productsName,
-                            fontSize: getWidth(16),
-                            color: AppColors.textColor4,
-                          ),
-                          CustomText(
-                            text: productsModel.quantity,
-                            fontSize: getWidth(14),
-                            color: AppColors.textColor5,
-                          )
-                        ],
-                      ),
-                    ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            Padding(
+              padding: EdgeInsets.only(
+                  left: getWidth(14),
+                  right: getWidth(14),
+                  bottom: getWidth(10)),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  SizedBox(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         CustomText(
-                          text: productsModel.price,
-                          fontSize: getWidth(18),
+                          text: productsModel.productsName,
+                          fontSize: getWidth(16),
                           color: AppColors.textColor4,
                         ),
-                        CustomIconButton(onTap: () {})
+                        CustomText(
+                          text: productsModel.quantity,
+                          fontSize: getWidth(14),
+                          color: AppColors.textColor5,
+                        )
                       ],
-                    )
-                  ],
-                ),
+                    ),
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      CustomText(
+                        text: productsModel.price,
+                        fontSize: getWidth(18),
+                        color: AppColors.textColor4,
+                      ),
+                      CustomIconButton(onTap: () {})
+                    ],
+                  )
+                ],
               ),
             )
           ],

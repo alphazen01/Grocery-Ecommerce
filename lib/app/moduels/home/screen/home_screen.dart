@@ -11,6 +11,7 @@ import 'package:grocery/app/global_widgets/custom_icon_button.dart';
 import 'package:grocery/app/global_widgets/custom_text.dart';
 import 'package:grocery/app/global_widgets/custom_textfield.dart';
 import 'package:grocery/app/moduels/home/components/horizontal_container.dart';
+import 'package:grocery/app/moduels/home/components/horizontal_container_two.dart';
 import 'package:grocery/app/moduels/home/controller/home_controller.dart';
 import 'package:grocery/app/moduels/home/models/products_model.dart';
 import 'package:grocery/app/routes/routes.dart';
@@ -167,14 +168,27 @@ class HomeScreen extends GetView<HomeController> {
                           height: getHeight(30),
                         ),
                         HorizontalContainer(
-                          title: "check ",
+                          title: "Best Selling ",
                           onTap: () {
                             Get.toNamed(Routes.seeAllProducts, arguments: {
-                              "title": "chekck",
+                              "title": "Best Selling",
                               "products": bestSellingList,
                             });
                           },
                           productList: bestSellingList,
+                        ),
+                        SizedBox(
+                          height: getHeight(30),
+                        ),
+                        HorizontalContainerTwo(
+                          title: "Groceries ",
+                          onTap: () {
+                            Get.toNamed(Routes.seeAllProducts, arguments: {
+                              "title": "Groceries",
+                              "products": groceryList,
+                            });
+                          },
+                          productList: groceryList,
                         ),
                       ],
                     ),
