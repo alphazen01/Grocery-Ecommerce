@@ -53,7 +53,9 @@ class AppColors {
   static Color textColor6 = const Color(0xff4C4F4D);
   static Color iconWhite = const Color(0xffFFF9FF);
   static Color texfieldBorder = const Color(0xffE2E2E2);
+  static Color dividerColor = const Color(0xffE2E2E2).withOpacity(0.7);
   static Color green2 = const Color(0xff53B175).withOpacity(0.15);
+  static Color detailsImageBg = const Color(0xffF2F3F2).withOpacity(0.15);
 //grocery
 
   static Color textColorBlack = const Color(0xff030303);
