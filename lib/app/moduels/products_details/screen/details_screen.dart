@@ -3,10 +3,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 import 'package:get/get_state_manager/get_state_manager.dart';
+import 'package:get/get_state_manager/src/rx_flutter/rx_obx_widget.dart';
 import 'package:grocery/app/core/app_colors.dart';
 import 'package:grocery/app/core/app_icons.dart';
 import 'package:grocery/app/core/app_sizes.dart';
 import 'package:grocery/app/global_widgets/custom_image.dart';
+import 'package:grocery/app/global_widgets/custom_submit_button.dart';
 import 'package:grocery/app/global_widgets/custom_text.dart';
 import 'package:grocery/app/moduels/home/models/products_model.dart';
 import 'package:grocery/app/moduels/products_details/controller/details_controller.dart';
@@ -24,36 +26,32 @@ class ProductsDetailsScreen extends GetView<ProductsDetaislController> {
     final controller = Get.put(ProductsDetaislController());
     return Scaffold(
       body: CustomScrollView(slivers: [
+        SliverAppBar(
+          expandedHeight: 1,
+          backgroundColor: AppColors.detailsImageBg,
+          leading: IconButton(
+              onPressed: () {
+                Get.back();
+              },
+              icon: Icon(Icons.arrow_back_ios_new)),
+        ),
         SliverToBoxAdapter(
           child: Column(
             children: [
               //Image section
               Container(
-                width: double.infinity,
-                height: screenHeight() * 0.4,
+                // width: double.infinity,
+                height: screenHeight() * 0.25,
                 decoration: BoxDecoration(
                     color: AppColors.detailsImageBg,
                     borderRadius: BorderRadius.only(
                       bottomLeft: Radius.circular(getWidth(25)),
                       bottomRight: Radius.circular(getWidth(25)),
                     )),
-                child: Stack(
-                  children: [
-                    Center(
-                      child: Image.asset(
-                        productsModel.imagePath,
-                      ),
-                    ),
-                    Positioned(
-                      left: getWidth(25),
-                      top: getHeight(8),
-                      child: IconButton(
-                          onPressed: () {
-                            Get.back();
-                          },
-                          icon: Icon(Icons.arrow_back_ios_new)),
-                    )
-                  ],
+                child: Center(
+                  child: Image.asset(
+                    productsModel.imagePath,
+                  ),
                 ),
               ),
 
@@ -168,11 +166,99 @@ class ProductsDetailsScreen extends GetView<ProductsDetaislController> {
                             fontWeight: FontWeight.w600,
                             fontSize: getWidth(16),
                           ),
-                          IconButton(
-                              onPressed: () {},
-                              icon: CustomImage(path: AppIcons.arrowDown))
+                          IconButton(onPressed: () {
+                            controller.hiddenText.value =
+                                !controller.hiddenText.value;
+                          }, icon: Obx(() {
+                            return controller.hiddenText.value
+                                ? CustomImage(path: AppIcons.arrowDown)
+                                : CustomImage(path: AppIcons.arrowUp);
+                          }))
                         ],
                       ),
+                      SizedBox(
+                        height: getHeight(10),
+                      ),
+                      //expandable text
+                      Obx(() {
+                        return CustomText(
+                          text: controller.hiddenText.value
+                              ? "Apples are nutritious. Apples may be good for weight loss."
+                              : "Apples are nutritious. Apples may be good for weight loss. apples may be good for your heart. As part of a healtful and varied diet.",
+                        );
+                      }),
+                      SizedBox(
+                        height: getHeight(20),
+                      ),
+                      Divider(
+                        color: AppColors.dividerColor,
+                      ),
+                      //nutritions
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          CustomText(
+                            text: "Nutritions",
+                            color: AppColors.textColor4,
+                            fontWeight: FontWeight.w600,
+                            fontSize: getWidth(16),
+                          ),
+                          Container(
+                            padding: EdgeInsets.symmetric(
+                                horizontal: getHeight(5),
+                                vertical: getHeight(5)),
+                            decoration: BoxDecoration(
+                                color: Color(0xffEBEBEB),
+                                borderRadius:
+                                    BorderRadius.circular(getWidth(5))),
+                            child: Center(
+                              child: CustomText(
+                                text: "100gm",
+                                fontSize: getWidth(9),
+                                fontWeight: FontWeight.w600,
+                                color: AppColors.textColor4,
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                      SizedBox(
+                        height: getHeight(20),
+                      ),
+                      Divider(
+                        color: AppColors.dividerColor,
+                      ),
+                      //Review
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          CustomText(
+                            text: "Review",
+                            color: AppColors.textColor4,
+                            fontWeight: FontWeight.w600,
+                            fontSize: getWidth(16),
+                          ),
+                          Row(
+                            children: List.generate(
+                                5,
+                                (index) => Icon(
+                                      Icons.star,
+                                      color: Colors.deepOrangeAccent,
+                                    )),
+                          ),
+                        ],
+                      ),
+                      // SizedBox(
+                      //   height: getHeight(30),
+                      // ),
+                      //Button section
+                      SafeArea(
+                        child: CustomSubmitButton(
+                          onTap: () {},
+                          title: "Add To Basket",
+                          textColor: AppColors.white,
+                        ),
+                      )
                     ]),
               ),
             ],

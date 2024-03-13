@@ -23,40 +23,35 @@ class CustomSubmitButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return CustomDelayedAnimation(
-      delay: 20,
-      dx: 0,
-      dy: -0.2,
-      child: Card(
-        elevation: 5,
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(19),
-        ),
-        child: Container(
-          height: getWidth(67),
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(getWidth(19)),
+    return Card(
+      elevation: 5,
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(19),
+      ),
+      child: Container(
+        height: getWidth(67),
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(getWidth(19)),
 
-            // color: color
-          ),
-          child: Material(
+          // color: color
+        ),
+        child: Material(
+          borderRadius: BorderRadius.circular(getWidth(19)),
+          color: AppColors.green,
+          child: InkWell(
             borderRadius: BorderRadius.circular(getWidth(19)),
-            color: AppColors.green,
-            child: InkWell(
-              borderRadius: BorderRadius.circular(getWidth(19)),
-              splashColor: splashColor ?? Colors.white24,
-              onTap: onTap,
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  CustomText(
-                    text: title,
-                    fontSize: getWidth(20),
-                    fontWeight: FontWeight.w700,
-                    color: textColor ?? const Color(0xffFAFAFA),
-                  )
-                ],
-              ),
+            splashColor: splashColor ?? Colors.white24,
+            onTap: onTap,
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                CustomText(
+                  text: title,
+                  fontSize: getWidth(20),
+                  fontWeight: FontWeight.w700,
+                  color: textColor ?? const Color(0xffFAFAFA),
+                )
+              ],
             ),
           ),
         ),
