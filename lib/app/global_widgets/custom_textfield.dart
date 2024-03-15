@@ -10,6 +10,8 @@ class CustomTextFormField extends StatelessWidget {
   final bool? obSecure;
   final bool? readOnly;
   final TextInputType? keboardType;
+  final Color? borderColor;
+  final Function(String)? onChanged;
   const CustomTextFormField(
       {super.key,
       required this.controller,
@@ -18,6 +20,8 @@ class CustomTextFormField extends StatelessWidget {
       this.prefixIcon,
       this.obSecure,
       this.readOnly,
+      this.borderColor,
+      this.onChanged,
       this.keboardType});
 
   @override
@@ -26,8 +30,11 @@ class CustomTextFormField extends StatelessWidget {
       width: double.infinity,
       height: getHeight(60),
       decoration: BoxDecoration(
-          border: Border(bottom: BorderSide(color: AppColors.texfieldBorder))),
+          border: Border(
+              bottom:
+                  BorderSide(color: borderColor ?? AppColors.texfieldBorder))),
       child: TextFormField(
+        onChanged: onChanged,
         keyboardType: keboardType,
         controller: controller,
         obscureText: obSecure ?? false,
@@ -38,7 +45,10 @@ class CustomTextFormField extends StatelessWidget {
               fontSize: getWidth(14),
               color: AppColors.textColor3,
             ),
-            prefixIcon: prefixIcon,
+            prefixIcon: Padding(
+              padding: const EdgeInsets.only(top: 10),
+              child: prefixIcon,
+            ),
             suffixIcon: suffixIcon,
             focusedBorder: InputBorder.none,
             enabledBorder: InputBorder.none),

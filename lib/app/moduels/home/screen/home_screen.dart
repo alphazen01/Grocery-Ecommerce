@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 import 'package:grocery/app/animation/custom_delay_animation.dart';
 import 'package:grocery/app/core/app_colors.dart';
@@ -77,26 +78,40 @@ class HomeScreen extends GetView<HomeController> {
                                 color: AppColors.searchFieldColor,
                                 borderRadius:
                                     BorderRadius.circular(getWidth(15))),
-                            child: Row(
-                              children: [
-                                Padding(
-                                  padding: EdgeInsets.only(top: getHeight(5)),
-                                  child: Icon(
-                                    Icons.search,
-                                    color: Color(0xff181B19),
-                                  ),
-                                ),
-                                SizedBox(
-                                  width: getWidth(5),
-                                ),
-                                CustomText(
-                                  text: "Search Store",
-                                  fontSize: getWidth(14),
-                                  fontWeight: FontWeight.w600,
-                                  color: AppColors.textColor5,
-                                )
-                              ],
-                            )),
+                            child: Padding(
+                              padding: const EdgeInsets.only(bottom: 5.0),
+                              child: CustomTextFormField(
+                                onChanged: (value) {
+                                  controller.filterSearchResults(value);
+                                },
+                                controller: controller.seachController,
+                                prefixIcon: Icon(Icons.search),
+                                hintText: "Search products",
+                                borderColor: Colors.transparent,
+                              ),
+                            )
+                            // Row(
+                            //   children: [
+                            //     Padding(
+                            //       padding: EdgeInsets.only(top: getHeight(5)),
+                            //       child: Icon(
+                            //         Icons.search,
+                            //         color: Color(0xff181B19),
+                            //       ),
+                            //     ),
+                            //     SizedBox(
+                            //       width: getWidth(5),
+                            //     ),
+                            //     CustomText(
+                            //       text: "Search Store",
+                            //       fontSize: getWidth(14),
+                            //       fontWeight: FontWeight.w600,
+                            //       color: AppColors.textColor5,
+                            //     )
+                            //   ],
+                            // )
+                            ),
+
                         SizedBox(
                           height: getHeight(20),
                         ),
@@ -164,6 +179,7 @@ class HomeScreen extends GetView<HomeController> {
                           },
                           productList: exclusiveItemsList,
                         ),
+
                         SizedBox(
                           height: getHeight(30),
                         ),

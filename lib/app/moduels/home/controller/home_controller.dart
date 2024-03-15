@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:grocery/app/core/app_images.dart';
+import 'package:grocery/app/moduels/home/models/products_model.dart';
 
 class HomeController extends GetxController {
   var seachController = TextEditingController();
 
   var pageController = PageController(initialPage: 0);
+  final RxList<ProductsModel> items = RxList<ProductsModel>();
 
   @override
   void dispose() {
@@ -18,6 +20,7 @@ class HomeController extends GetxController {
 
   @override
   void onInit() {
+    items.assignAll(exclusiveItemsList);
     super.onInit();
 
     // Listen to page changes and update the currentPage using GetX's obs
@@ -30,4 +33,13 @@ class HomeController extends GetxController {
     AppImages.banner1,
     AppImages.banner2,
   ];
+  void filterSearchResults(String query) {
+    if (query.isEmpty) {
+      items.assignAll(exclusiveItemsList);
+      return;
+    }
+    items.assignAll(exclusiveItemsList.where((item) {
+      return item.productsName.toLowerCase().contains(query.toLowerCase());
+    }).toList());
+  }
 }
