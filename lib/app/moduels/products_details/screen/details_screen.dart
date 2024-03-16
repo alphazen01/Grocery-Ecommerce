@@ -25,6 +25,7 @@ class ProductsDetailsScreen extends GetView<ProductsDetaislController> {
   @override
   Widget build(BuildContext context) {
     final controller = Get.put(ProductsDetaislController());
+
     return Scaffold(
       body: CustomScrollView(slivers: [
         SliverAppBar(

@@ -1,5 +1,3 @@
-import 'package:grocery/app/moduels/home/screen/see_all_products_screen.dart';
-
 abstract class Routes {
   static const initial = "/";
   // static const login = "/login";

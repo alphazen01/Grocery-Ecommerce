@@ -9,6 +9,7 @@ class CustomTextFormField extends StatelessWidget {
   final TextEditingController controller;
   final bool? obSecure;
   final bool? readOnly;
+  final bool? autoFocus;
   final TextInputType? keboardType;
   final Color? borderColor;
   final Function(String)? onChanged;
@@ -22,6 +23,7 @@ class CustomTextFormField extends StatelessWidget {
       this.readOnly,
       this.borderColor,
       this.onChanged,
+      this.autoFocus,
       this.keboardType});
 
   @override
@@ -34,6 +36,7 @@ class CustomTextFormField extends StatelessWidget {
               bottom:
                   BorderSide(color: borderColor ?? AppColors.texfieldBorder))),
       child: TextFormField(
+        autofocus: autoFocus ?? false,
         onChanged: onChanged,
         keyboardType: keboardType,
         controller: controller,

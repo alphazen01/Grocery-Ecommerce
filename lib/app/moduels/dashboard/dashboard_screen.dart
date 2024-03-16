@@ -48,7 +48,7 @@ class DashBoardScreen extends GetView<DashBoardController> {
                           width: getWidth(28),
                         ),
                         CustomText(
-                          text: "Shop",
+                          text: "Home",
                           fontSize: getWidth(12),
                           fontWeight: FontWeight.w600,
                           color: controller.selectedIndex.value == 0

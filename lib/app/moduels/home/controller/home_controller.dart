@@ -17,10 +17,12 @@ class HomeController extends GetxController {
 
   var currentPage = 0.obs;
   var isFinished = false;
+  var isTap = false.obs;
 
   @override
   void onInit() {
-    items.assignAll(exclusiveItemsList);
+    items
+        .assignAll([...exclusiveItemsList, ...bestSellingList, ...groceryList]);
     super.onInit();
 
     // Listen to page changes and update the currentPage using GetX's obs
@@ -35,10 +37,11 @@ class HomeController extends GetxController {
   ];
   void filterSearchResults(String query) {
     if (query.isEmpty) {
-      items.assignAll(exclusiveItemsList);
+      items.assignAll(
+          [...exclusiveItemsList, ...bestSellingList, ...groceryList]);
       return;
     }
-    items.assignAll(exclusiveItemsList.where((item) {
+    items.assignAll(items.where((item) {
       return item.productsName.toLowerCase().contains(query.toLowerCase());
     }).toList());
   }

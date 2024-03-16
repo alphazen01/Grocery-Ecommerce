@@ -15,14 +15,40 @@ import 'package:grocery/app/moduels/home/components/horizontal_container.dart';
 import 'package:grocery/app/moduels/home/components/horizontal_container_two.dart';
 import 'package:grocery/app/moduels/home/controller/home_controller.dart';
 import 'package:grocery/app/moduels/home/models/products_model.dart';
+import 'package:grocery/app/moduels/products_details/screen/details_screen.dart';
 import 'package:grocery/app/routes/routes.dart';
+import 'package:grocery/app/utils/utils.dart';
 
-class HomeScreen extends GetView<HomeController> {
+class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
 
   @override
+  State<HomeScreen> createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<HomeScreen> {
+  bool _showFirstWidget = true;
+  @override
   Widget build(BuildContext context) {
     final controller = Get.put(HomeController());
+
+    return WillPopScope(
+      onWillPop: () async {
+        if (!_showFirstWidget) {
+          setState(() {
+            _showFirstWidget = true;
+          });
+          return false;
+        }
+        return true;
+      },
+      child: _showFirstWidget
+          ? homeWidget(controller)
+          : Utils().searchWidget(controller),
+    );
+  }
+
+  Container homeWidget(HomeController controller) {
     return Container(
       child: CustomScrollView(
         slivers: [
@@ -38,17 +64,12 @@ class HomeScreen extends GetView<HomeController> {
                     child: Column(
                       children: [
                         //Logo Section
-                        CustomDelayedAnimation(
-                          delay: 20,
-                          dx: 0,
-                          dy: -0.2,
-                          child: Container(
-                            width: getWidth(70),
-                            height: getHeight(70),
-                            child: Image.asset(
-                              AppImages.carrotLogo,
-                              height: getHeight(24),
-                            ),
+                        Container(
+                          width: getWidth(70),
+                          height: getHeight(70),
+                          child: Image.asset(
+                            AppImages.carrotLogo,
+                            height: getHeight(24),
                           ),
                         ),
                         //Location Section
@@ -71,46 +92,40 @@ class HomeScreen extends GetView<HomeController> {
                           height: getHeight(20),
                         ),
                         //search Section
-                        Container(
-                            padding: EdgeInsets.only(left: getWidth(10)),
-                            height: getHeight(50),
-                            decoration: BoxDecoration(
-                                color: AppColors.searchFieldColor,
-                                borderRadius:
-                                    BorderRadius.circular(getWidth(15))),
-                            child: Padding(
-                              padding: const EdgeInsets.only(bottom: 5.0),
-                              child: CustomTextFormField(
-                                onChanged: (value) {
-                                  controller.filterSearchResults(value);
-                                },
-                                controller: controller.seachController,
-                                prefixIcon: Icon(Icons.search),
-                                hintText: "Search products",
-                                borderColor: Colors.transparent,
-                              ),
-                            )
-                            // Row(
-                            //   children: [
-                            //     Padding(
-                            //       padding: EdgeInsets.only(top: getHeight(5)),
-                            //       child: Icon(
-                            //         Icons.search,
-                            //         color: Color(0xff181B19),
-                            //       ),
-                            //     ),
-                            //     SizedBox(
-                            //       width: getWidth(5),
-                            //     ),
-                            //     CustomText(
-                            //       text: "Search Store",
-                            //       fontSize: getWidth(14),
-                            //       fontWeight: FontWeight.w600,
-                            //       color: AppColors.textColor5,
-                            //     )
-                            //   ],
-                            // )
-                            ),
+                        InkWell(
+                          onTap: () {
+                            setState(() {
+                              _showFirstWidget = !_showFirstWidget;
+                            });
+                          },
+                          child: Container(
+                              padding: EdgeInsets.only(left: getWidth(10)),
+                              height: getHeight(50),
+                              decoration: BoxDecoration(
+                                  color: AppColors.searchFieldColor,
+                                  borderRadius:
+                                      BorderRadius.circular(getWidth(15))),
+                              child: Row(
+                                children: [
+                                  Padding(
+                                    padding: EdgeInsets.only(top: getHeight(5)),
+                                    child: Icon(
+                                      Icons.search,
+                                      color: Color(0xff181B19),
+                                    ),
+                                  ),
+                                  SizedBox(
+                                    width: getWidth(5),
+                                  ),
+                                  CustomText(
+                                    text: "Search Store",
+                                    fontSize: getWidth(14),
+                                    fontWeight: FontWeight.w600,
+                                    color: AppColors.textColor5,
+                                  )
+                                ],
+                              )),
+                        ),
 
                         SizedBox(
                           height: getHeight(20),
@@ -159,8 +174,8 @@ class HomeScreen extends GetView<HomeController> {
                                         radius: 5,
                                         backgroundColor:
                                             controller.currentPage == indexDots
-                                                ? AppColors.white
-                                                : AppColors.green,
+                                                ? AppColors.green
+                                                : AppColors.white,
                                       ),
                                     );
                                   })),

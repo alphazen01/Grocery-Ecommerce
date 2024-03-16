@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:grocery/app/moduels/explore_products/screen/explore_screen.dart';
 import 'package:grocery/app/moduels/home/screen/home_screen.dart';
 
 class DashBoardController extends GetxController {
@@ -24,9 +25,7 @@ class DashBoardController extends GetxController {
 
   List<Widget> pageList = [
     HomeScreen(),
-    Container(
-      color: Colors.red,
-    ),
+    ExploreScreen(),
     Container(
       color: Colors.teal,
     ),
