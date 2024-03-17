@@ -18,10 +18,17 @@ class ExploreController extends GetxController {
     Color(0xffFDE598).withOpacity(0.75),
     Color(0xffB7DFF5).withOpacity(0.75),
   ];
-  RxInt currentIndex = 0.obs;
+  var count = 0.obs;
+  var selectFav = false.obs;
+  var hiddenText = true.obs;
 
-  // Add a method to update currentIndex if needed
-  void updateCurrentIndex(int newIndex) {
-    currentIndex.value = newIndex;
+  void increament() {
+    count.value++;
+  }
+
+  void decreament() {
+    if (count.value > 0) {
+      count.value--;
+    }
   }
 }

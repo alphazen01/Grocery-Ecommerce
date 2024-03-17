@@ -19,4 +19,17 @@ class AppImages {
   static const String capsicum = "assets/images/capsicum.png";
   static const String begun = "assets/images/begun.png";
   static const String carrots = "assets/images/carrots.png";
+  static const String bevarage = "assets/images/bevarage.png";
+  static const String dairy = "assets/images/dairy.png";
+  static const String meat = "assets/images/meat.png";
+  static const String bakery = "assets/images/bakery.png";
+  static const String oil = "assets/images/oil.png";
+  static const String fruite = "assets/images/fruite.png";
+  //bevarage
+  static const String d_coke = "assets/images/d_coke.png";
+  static const String cocacola = "assets/images/cocacola.png";
+  static const String grape = "assets/images/grape.png";
+  static const String sprite = "assets/images/sprite.png";
+  static const String orangeJuice = "assets/images/orange.png";
+  static const String pepsi = "assets/images/pepsi.png";
 }

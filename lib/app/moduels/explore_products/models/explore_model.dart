@@ -14,64 +14,231 @@ class ExploreModel {
 
 List<ExploreModel> exploreList = [
   ExploreModel(
-      imagePath: AppImages.apple,
+      imagePath: AppImages.fruite,
       title: "Frash Fruits & Vegetable",
       productList: fruitsList),
   ExploreModel(
-      imagePath: AppImages.banana,
+      imagePath: AppImages.oil,
       title: "Cooking Oil & Ghee",
       productList: oilList),
   ExploreModel(
-      imagePath: AppImages.pinapple,
-      title: "Meat & Fish",
-      productList: meatList),
+      imagePath: AppImages.meat, title: "Meat & Fish", productList: meatList),
   ExploreModel(
-      imagePath: AppImages.begun,
+      imagePath: AppImages.bakery,
       title: "Bakery & Snacks",
       productList: bakeryList),
   ExploreModel(
-      imagePath: AppImages.capsicum,
+      imagePath: AppImages.dairy,
       title: "Dairy & Eggs",
       productList: dairyList),
   ExploreModel(
-      imagePath: AppImages.lichy,
+      imagePath: AppImages.bevarage,
       title: "Beverages",
       productList: beverageList),
 ];
 
 class AllExploreModel {
   final String title;
+  final String imagePath;
+  final String subtitle;
+  final String price;
 
-  const AllExploreModel({required this.title});
+  const AllExploreModel(
+      {required this.title,
+      required this.imagePath,
+      required this.subtitle,
+      required this.price});
 }
 
 const fruitsList = [
-  AllExploreModel(title: "fruite 1"),
-  AllExploreModel(title: "fruite 2"),
-  AllExploreModel(title: "fruite 3"),
+  AllExploreModel(
+      imagePath: AppImages.apple,
+      title: "Fruite",
+      subtitle: "355 ml",
+      price: "\$1.99"),
+  AllExploreModel(
+      imagePath: AppImages.apple,
+      title: "Diet Coke",
+      subtitle: "355 ml",
+      price: "\$1.99"),
+  AllExploreModel(
+      imagePath: AppImages.apple,
+      title: "Diet Coke",
+      subtitle: "355 ml",
+      price: "\$1.99"),
+  AllExploreModel(
+      imagePath: AppImages.apple,
+      title: "Diet Coke",
+      subtitle: "355 ml",
+      price: "\$1.99"),
+  AllExploreModel(
+      imagePath: AppImages.apple,
+      title: "Diet Coke",
+      subtitle: "355 ml",
+      price: "\$1.99"),
+  AllExploreModel(
+      imagePath: AppImages.apple,
+      title: "Diet Coke",
+      subtitle: "355 ml",
+      price: "\$1.99"),
 ];
 const oilList = [
-  AllExploreModel(title: "oil 1"),
-  AllExploreModel(title: "oil 2"),
-  AllExploreModel(title: "oil 3"),
+  AllExploreModel(
+      imagePath: AppImages.apple,
+      title: "oil",
+      subtitle: "355 ml",
+      price: "\$1.99"),
+  AllExploreModel(
+      imagePath: AppImages.apple,
+      title: "Diet Coke",
+      subtitle: "355 ml",
+      price: "\$1.99"),
+  AllExploreModel(
+      imagePath: AppImages.apple,
+      title: "Diet Coke",
+      subtitle: "355 ml",
+      price: "\$1.99"),
+  AllExploreModel(
+      imagePath: AppImages.apple,
+      title: "Diet Coke",
+      subtitle: "355 ml",
+      price: "\$1.99"),
+  AllExploreModel(
+      imagePath: AppImages.apple,
+      title: "Diet Coke",
+      subtitle: "355 ml",
+      price: "\$1.99"),
+  AllExploreModel(
+      imagePath: AppImages.apple,
+      title: "Diet Coke",
+      subtitle: "355 ml",
+      price: "\$1.99"),
 ];
 const meatList = [
-  AllExploreModel(title: "meat 1"),
-  AllExploreModel(title: "meat 2"),
-  AllExploreModel(title: "meat 3"),
+  AllExploreModel(
+      imagePath: AppImages.apple,
+      title: "meat",
+      subtitle: "355 ml",
+      price: "\$1.99"),
+  AllExploreModel(
+      imagePath: AppImages.apple,
+      title: "Diet Coke",
+      subtitle: "355 ml",
+      price: "\$1.99"),
+  AllExploreModel(
+      imagePath: AppImages.apple,
+      title: "Diet Coke",
+      subtitle: "355 ml",
+      price: "\$1.99"),
+  AllExploreModel(
+      imagePath: AppImages.apple,
+      title: "Diet Coke",
+      subtitle: "355 ml",
+      price: "\$1.99"),
+  AllExploreModel(
+      imagePath: AppImages.apple,
+      title: "Diet Coke",
+      subtitle: "355 ml",
+      price: "\$1.99"),
+  AllExploreModel(
+      imagePath: AppImages.apple,
+      title: "Diet Coke",
+      subtitle: "355 ml",
+      price: "\$1.99"),
 ];
 const bakeryList = [
-  AllExploreModel(title: "bakery 1"),
-  AllExploreModel(title: "bakery 2"),
-  AllExploreModel(title: "bakery 3"),
+  AllExploreModel(
+      imagePath: AppImages.apple,
+      title: "bakery",
+      subtitle: "355 ml",
+      price: "\$1.99"),
+  AllExploreModel(
+      imagePath: AppImages.apple,
+      title: "Diet Coke",
+      subtitle: "355 ml",
+      price: "\$1.99"),
+  AllExploreModel(
+      imagePath: AppImages.apple,
+      title: "Diet Coke",
+      subtitle: "355 ml",
+      price: "\$1.99"),
+  AllExploreModel(
+      imagePath: AppImages.apple,
+      title: "Diet Coke",
+      subtitle: "355 ml",
+      price: "\$1.99"),
+  AllExploreModel(
+      imagePath: AppImages.apple,
+      title: "Diet Coke",
+      subtitle: "355 ml",
+      price: "\$1.99"),
+  AllExploreModel(
+      imagePath: AppImages.apple,
+      title: "Diet Coke",
+      subtitle: "355 ml",
+      price: "\$1.99"),
 ];
 const dairyList = [
-  AllExploreModel(title: "dairy 1"),
-  AllExploreModel(title: "dairy 2"),
-  AllExploreModel(title: "dairy 3"),
+  AllExploreModel(
+      imagePath: AppImages.apple,
+      title: "Dairy",
+      subtitle: "355 ml",
+      price: "\$1.99"),
+  AllExploreModel(
+      imagePath: AppImages.apple,
+      title: "Diet Coke",
+      subtitle: "355 ml",
+      price: "\$1.99"),
+  AllExploreModel(
+      imagePath: AppImages.apple,
+      title: "Diet Coke",
+      subtitle: "355 ml",
+      price: "\$1.99"),
+  AllExploreModel(
+      imagePath: AppImages.apple,
+      title: "Diet Coke",
+      subtitle: "355 ml",
+      price: "\$1.99"),
+  AllExploreModel(
+      imagePath: AppImages.apple,
+      title: "Diet Coke",
+      subtitle: "355 ml",
+      price: "\$1.99"),
+  AllExploreModel(
+      imagePath: AppImages.apple,
+      title: "Diet Coke",
+      subtitle: "355 ml",
+      price: "\$1.99"),
 ];
 const beverageList = [
-  AllExploreModel(title: "beverage 1"),
-  AllExploreModel(title: "beverage 2"),
-  AllExploreModel(title: "beverage 3"),
+  AllExploreModel(
+      imagePath: AppImages.d_coke,
+      title: "Diet Coke",
+      subtitle: "355 ml",
+      price: "\$1.99"),
+  AllExploreModel(
+      imagePath: AppImages.sprite,
+      title: "Sprite Can",
+      subtitle: "325 ml",
+      price: "\$1.50"),
+  AllExploreModel(
+      imagePath: AppImages.grape,
+      title: "Apple & Grape Juice",
+      subtitle: "2L",
+      price: "\$15.99"),
+  AllExploreModel(
+      imagePath: AppImages.orangeJuice,
+      title: "Orenge Juice",
+      subtitle: "2L",
+      price: "\$15.99"),
+  AllExploreModel(
+      imagePath: AppImages.cocacola,
+      title: "Coca Cola Can",
+      subtitle: "325 ml",
+      price: "\$1.99"),
+  AllExploreModel(
+      imagePath: AppImages.pepsi,
+      title: "Pepsi Can ",
+      subtitle: "330 ml",
+      price: "\$1.99"),
 ];
