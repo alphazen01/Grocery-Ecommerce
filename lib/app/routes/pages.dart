@@ -1,6 +1,8 @@
 import 'package:get/get.dart';
 import 'package:grocery/app/moduels/dashboard/bindings/dashboard_bindings.dart';
 import 'package:grocery/app/moduels/dashboard/dashboard_screen.dart';
+import 'package:grocery/app/moduels/explore_products/bindings/explore_binding.dart';
+import 'package:grocery/app/moduels/explore_products/screen/all_explore_items.dart';
 import 'package:grocery/app/moduels/home/bindings/home_binding.dart';
 import 'package:grocery/app/moduels/home/screen/home_screen.dart';
 import 'package:grocery/app/moduels/home/screen/see_all_products_screen.dart';
@@ -104,6 +106,13 @@ class Pages {
       name: Routes.detailsProducts,
       page: () => const SeeAllProducts(),
       binding: HomeBindings(),
+      transition: Transition.rightToLeft,
+      transitionDuration: const Duration(milliseconds: 300),
+    ),
+    GetPage(
+      name: Routes.allExploreScreen,
+      page: () => const AllExploreScreen(),
+      binding: ExploreBindings(),
       transition: Transition.rightToLeft,
       transitionDuration: const Duration(milliseconds: 300),
     ),

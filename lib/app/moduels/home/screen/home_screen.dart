@@ -118,7 +118,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                     width: getWidth(5),
                                   ),
                                   CustomText(
-                                    text: "Search Store",
+                                    text: "Search products",
                                     fontSize: getWidth(14),
                                     fontWeight: FontWeight.w600,
                                     color: AppColors.textColor5,
